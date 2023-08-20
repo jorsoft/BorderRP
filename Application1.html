@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRPV | Introduction Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Application1.css">
+</head>
+<body>
+    <div class="ban">
+        <div class="navbar">
+            <img class="small-logo" src="https://media.discordapp.net/attachments/1122238473018036274/1133376150798868590/Borderrpppp.png?width=460&height=457">
+            <a href="#">Main</a>
+            <a href="file:///C:/Users/T.K/Desktop/BorderRP/promoCodes.html">Promo Codes</a>
+            <a href="#">Shop</a>
+            <a href="file:///C:/Users/T.K/Desktop/BorderRP/earnEconomy.html">Earn Economy</a>
+            <p class="Economy" id="Economy">Economy Cash: 0</p>
+        </div>
+        <div class="container">
+            <center><p class="AppTitle"><b>Introduction Application</b></p></center>
+            <center><p class="Note">Application About You</p></center><br>
+            <center><input type="text" placeholder="Your Name" id="firstName"><br></center>
+            <center><input type="text" id="lastName" placeholder="Last Name"><br></center>
+            <center><input type="text" id="Age" placeholder="Your Age"><br></center>
+            <center><input type="text" id="Hobby" placeholder="Your Hobby"><br></center>
+            <center><button id="submit">Submit Application</button></center>
+        </div>
+    </div>
+    
+    <script>
+        var economyCash = localStorage.getItem("economyCash");
+        document.getElementById("Economy").textContent = "Economy Cash: " + economyCash;
+
+        document.getElementById("submit").onclick = function submitApplication() {
+            if (document.getElementById("firstName").value !== "" && document.getElementById("lastName").value !== "" && document.getElementById("Age").value !== "" && document.getElementById("Hobby").value !== "") {
+                alert("Your Application has Been Submitted! You won 150 Economy Cash! :)");
+                economyCash = parseInt(economyCash) + 150;
+                localStorage.setItem("economyCash", economyCash);
+            } else {
+                alert("Please Fill in All Textboxes.");
+            }
+        };
+    </script>
+</body>
+</html>

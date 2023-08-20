@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRPV | Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shopping.css">
+</head>
+<body>
+    <div class="ban">
+        <div class="navbar">
+            <img class="small-logo" src="https://media.discordapp.net/attachments/1122238473018036274/1133376150798868590/Borderrpppp.png?width=460&height=457">
+            <a href="#">Main</a>
+            <a href="http://127.0.0.1:5500/promoCodes.html">Promo Codes</a>
+            <a href="#">Sessions</a>
+            <a href="#">Gallery</a>
+            <p class="Economy" id="Economy">Economy Cash: 0</p>
+        </div>
+
+        <div class="product1">
+            <img class="product-image" src="https://w7.pngwing.com/pngs/163/1015/png-transparent-camera-emoji-graphy-android-video-camera-electronics-camera-lens-rectangle.png">
+            <center><b><p class="product-title">Image Perms</p></b></center>
+            <div class="container">
+                <p class="Descreption"><b>Descreption:</b> By owning this item, you will be able to send any kind of image and video in our official Discord server's general chat.</p>
+            </div>
+            <p class="price"><b>Price: </b>25,000 Economy Cash</p>
+            <button id="buy-product1">Buy Now</button>
+        </div>
+
+        <script>
+            let cash = parseInt(localStorage.getItem('economyCash')) || 12000;
+            document.getElementById("Economy").textContent = "Economy Cash: " + cash;
+            localStorage.setItem('economyCash', cash);
+
+            document.getElementById("buy-product1").onclick = function buyImageProduct() {
+                if (cash >= 25000) {
+                    alert("Successfully Bought Product: Image Perms.");
+                    cash -= 25000;
+                    console.log(cash);
+                    document.getElementById("Economy").textContent = "Economy Cash: " + cash;
+                    localStorage.setItem("economyCash", cash);
+                } else {
+                    alert("You Don't Have Enough Cash to Buy This Product.");
+                }
+            };
+        </script>
+</body>
+</html>
